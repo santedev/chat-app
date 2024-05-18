@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/cat-face.svg">
+    <link rel="stylesheet" href="../style/sign_up.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="container-max-width d-flex align-center justify-center vh-100">
+      <div class="w-50 dark-bg border-radious container-form-sign-up">
+        <form action="/submit" method="post" id="sign-up-form">
+          <div class="d-flex row p-3">
+            <div class="d-flex flex-column w-100 justify-center margin">
+              <h2 class="text-center white">Create your account now</h2>
+              <input type="text" name="name" placeholder="Name" />
+              <input type="email" name="email" placeholder="Your email" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Choose a password"
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+              />
+              <div class="d-flex align-center justify-center w-100 mt-2">
+                <input
+                  type="file"
+                  id="file-upload"
+                  accept="image/*"
+                  class="d-none"
+                />
+                <label
+                  for="file-upload"
+                  class="upload-icon cursor-pointer text-center bg-accent vertical-align-middle"
+                >
+                  <img src="../img/upload.svg" alt="upload" />
+                </label>
+                <p class="m-0 p-0 ml-1 pb-1">upload a profile picture</p>
+              </div>
+              <span
+                id="user-input-message-text"
+                class="text-center py-2"
+              ></span>
+              <div
+                class="loading-container d-flex justify-center align-center"
+              ></div>
+              <input class="btn-submit" type="submit" value="Submit" />
+              <p class="text-center s-font normal-w">
+                have you already created an account? go to
+                <a class="s-font bold-w pointer white" href="./sign_in.html"
+                  >sign in</a
+                >
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/signUp.js"></script>
+  </body>
+</html>

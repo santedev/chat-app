@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/cat-face.svg">
+    <link rel="stylesheet" href="../style/sign_in.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="container-default d-flex align-center justify-center vh-100">
+      <div class="dark-bg border-radious container-form">
+        <form action="/submit" method="post" id="sign-in-form">
+          <div class="d-flex flex-column-lg">
+            <div
+              class="d-flex w-100 flex-column justify-center p-3 max-upper-width"
+            >
+              <h2 class="text-center white">Sign in! chats are waiting...</h2>
+              <input
+                type="text"
+                name="name/email"
+                placeholder="Your email or name"
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Your password"
+              />
+              <span id="res-text" class="text-center py-2"></span>
+              <input class="btn-submit mt-1" type="submit" value="Submit" />
+              <p class="text-center s-font">
+                haven't created an account? go to
+                <a class="s-font bold-w pointer white" href="./sign_up.html"
+                  >sign up</a
+                >
+              </p>
+            </div>
+            <div
+              class="d-flex flex-column w-100 align-center justify-center p-3 bg-accent cat-image-container"
+            >
+              <img class="w-100" src="../img/catLayingdown.svg" alt="cat_img" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/signIn.js"></script>
+  </body>
+</html>
