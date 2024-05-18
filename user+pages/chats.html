@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="img/cat-face.svg">
+    <link rel="stylesheet" href="../style/chatsPage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chats</title>
+  </head>
+  <body>
+    <div class="container-max-width margin-inline-auto d-flex">
+      <div class="sidebar">
+        <div
+          class="user-settings-container d-flex pl-1 pr-2 align-center justify-between"
+        >
+          <img
+            src="../img/default-avatar-profile-icon-social.webp"
+            alt="main user"
+            class="profile-picture"
+          />
+          <div class="main-user-options d-flex relative align-center">
+            <img
+              src="../img/three-dots-vertical.svg"
+              alt="hamburguer"
+              class="icon-dots"
+            />
+            <div class="menu-user-options d-none flex-column">
+              <button class="sign-out-btn">Sign out</button>
+              <button class="delete-account-btn">delete account</button>
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search accounts"
+          id="search-user"
+        />
+        <div class="results-users"></div>
+      </div>
+
+      <div class="chat w-100">
+        <div
+          class="chat-header px-3 py-2 w-100 dark-bg d-none d-flex justify-between align-center"
+        >
+          <div class="d-flex gap-2 align-center">
+            <img
+              src="../img/default-avatar-profile-icon-social.webp"
+              alt="user"
+              class="picture-chat cursor-pointer"
+            />
+            <div class="header-container-text-chat d-flex flex-column">
+              <h1>user</h1>
+              <span>online</span>
+            </div>
+          </div>
+          <div class="container-icon-tools d-flex gap">
+            <div id="user-options">
+              <img src="../img/three-dots-vertical.svg" alt="" />
+              <div class="options-user-container d-none flex-column">
+                <button id="block-user-option">Block user</button>
+                <button id="delete-user-option">Delete chat</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="messages"></div>
+        <form
+          action="/submit"
+          method="post"
+          class="input-container d-none d-flex w-100"
+        >
+          <div class="upload-icon-container d-flex align-center justify-center">
+            <input
+              type="file"
+              id="file-upload"
+              accept="image/*"
+              class="d-none"
+            />
+            <label
+              for="file-upload"
+              class="upload-icon w-100 cursor-pointer text-center vertical-align-middle"
+              ><img src="../img/upload.svg" alt="upload"
+            /></label>
+          </div>
+          <textarea
+            type="text"
+            name="name"
+            placeholder="Send message"
+          ></textarea>
+          <input class="send-message-button" type="submit" value="send" />
+        </form>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/validateUser.js"></script>
+  </body>
+</html>

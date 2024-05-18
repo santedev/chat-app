@@ -1,0 +1,41 @@
+@import "./main.css";
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.6rem;
+  color: var(--black);
+}
+
+h2 {
+  margin-bottom: 0.8rem;
+  font-family: var(--p-font);
+  word-spacing: -2px;
+  font-size: clamp(1.6rem, 4vw, 1.9rem);
+  line-height: 90%;
+  font-weight: 700;
+}
+
+p {
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+  margin-top: 0.8rem;
+  color: #aca8b1;
+}
+.upload-icon {
+  margin-bottom: 10px;
+  padding: calc(var(--def-space) * .6);
+  border-radius: 50%;
+}
+.upload-icon:hover {
+  background: #a2a5ea;
+}
+.container-form-sign-up {
+  max-width: 350px;
+}
+#user-input-message-text {
+  min-height: 45px;
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+  font-family: var(--s-font);
+}

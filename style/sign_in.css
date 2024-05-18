@@ -1,0 +1,56 @@
+@import "./main.css";
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.6rem;
+  color: var(--black);
+}
+
+.btn-submit {
+  color: var(--black);
+}
+
+h2 {
+  margin-bottom: 0.7rem;
+  font-family: var(--p-font);
+  word-spacing: -1px;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 90%;
+  font-weight: 700;
+}
+
+p {
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+  margin-top: 0.8rem;
+  color: #aca8b1;
+}
+.max-upper-width {
+  max-width: 400px;
+}
+.container-form {
+  width: clamp(18.75rem, 50%, 62.5rem);
+}
+.cat-image-container {
+  border-radius: 0 15px 15px 0;
+}
+
+#res-text {
+  min-height: 39px;
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+  font-family: var(--s-font);
+}
+
+@media (max-width: 992px) {
+  .cat-image-container {
+    border-radius: 0 0 15px 15px;
+    margin-left: 0;
+    padding-bottom: 1.5rem;
+    width: 100%;
+  }
+  .cat-image-container img {
+    max-width: 15rem;
+  }
+}

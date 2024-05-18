@@ -1,0 +1,179 @@
+@import "./style.css";
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #56565754;
+  border-radius: 50px;
+}
+*::-webkit-scrollbar-track {
+  background: #1c1b243e;
+}
+
+.header-p {
+  text-align: center;
+  font-weight: 800;
+  line-height: 100%;
+  font-size: clamp(3rem, 6vw, 6.5625rem);
+  letter-spacing: -1px;
+}
+.header-p span {
+  font-family: "Noto Sans", sans-serif;
+}
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 0.5px var(--white);
+}
+.header-s {
+  font-size: clamp(32px, 4vw, 62px);
+}
+.header-t {
+  font-size: clamp(28px, 3vw, 32px);
+  line-height: 100%;
+}
+.container-max-height {
+  max-height: 1024px;
+}
+button {
+  border: none;
+  background: none;
+}
+.button {
+  color: var(--dark);
+  background: var(--accent);
+}
+.button-transparent {
+  border: 1px solid var(--white);
+}
+.button,
+.button-transparent {
+  padding: 11px 15px;
+  line-height: 100%;
+  font-size: var(0.75rem, 15vw, 1.5rem);
+  border-radius: 50px;
+}
+.arrow-string-ball {
+  width: clamp(126px, 10vw, 216px);
+  height: auto;
+  margin-top: 6.875rem;
+}
+.section-video {
+  padding: 6.25rem 3.125rem;
+}
+
+.text-container-max-width {
+  max-width: 600px;
+  width: fit-content;
+}
+.video {
+  min-width: 300px;
+  width: 60vw;
+  max-width: 648px;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #161a3b;
+  border-radius: clamp(25px, 2vw, 50px);
+}
+.cards-container {
+  display: flex;
+}
+.card-container {
+  width: fit-content;
+  max-width: 300px;
+  min-height: 452px;
+  max-height: 452px;
+  padding: 50px 60px;
+  border-radius: 25px;
+  gap: calc(var(--def-space) * 0.8);
+}
+.card-container p {
+  line-height: 30px;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #ACA8B1;
+}
+
+.icon-container {
+  max-width: 125px;
+  max-height: 125px;
+  min-width: 125px;
+  min-height: 125px;
+  aspect-ratio: 1/1;
+  background: var(--main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.icon-container img {
+  height: auto;
+}
+.cat-sitting-svg {
+  width: 146px;
+  height: auto;
+  margin-inline: auto;  
+}
+
+.btn-submit {
+  background-color: var(--accent);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition: 0.1s ease-in-out;
+  margin-top: 0;
+}
+
+.btn-submit:hover {
+  background-color: #a2a5ea;
+}
+
+.container-form-sign-up {
+  width: clamp(18.75rem, 50%, 25rem);
+}
+
+.loader {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  animation: rotate 1.8s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 5;
+  stroke: var(--cyan);
+  stroke-linecap: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: loading 4s linear infinite;
+  transform: translate(5px,5px);
+}
+@keyframes loading {
+  0%, 100% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  50.1% {
+    stroke-dashoffset: 400;
+  }
+}
+@media (max-width: 576px) {
+  .section-video {
+    padding: 1.875rem;
+  }
+  .video {
+    width: 100%;
+  }
+}
