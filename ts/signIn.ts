@@ -49,7 +49,7 @@ formSignIn?.addEventListener("submit", async (event) => {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/user/login", {
+      const response = await fetch("https://restfulapi-chatapp.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,8 +58,8 @@ formSignIn?.addEventListener("submit", async (event) => {
       });
       const responseBody = await response.text();
       if (response.ok) {
-        //console.log("Response body:", responseBody);
-        //console.log(response.status);
+        console.log("Response body:", responseBody);
+        console.log(response.status);
         if (response.status == 200) {
           let textAlertMessage = document.querySelector("#res-text");
           if (textAlertMessage) {

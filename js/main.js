@@ -44,10 +44,7 @@ const setUsersId = new Set();
 let userId = -1;
 let chatGuestId = -1;
 let chatId = -1;
-window.onbeforeunload = () => {
-    ws.close();
-};
-const ws = new WebSocket("ws://localhost:8080");
+const ws = new WebSocket("wss://restfulapi-chatapp.onrender.com");
 ws.onopen = () => {
     console.log("WebSocket connection established.");
 };
@@ -165,7 +162,7 @@ ws.onclose = () => {
 };
 async function checkUserSessionKey() {
     try {
-        const response = await fetch("http://localhost:8080/session/validate", {
+        const response = await fetch("https://restfulapi-chatapp.onrender.com/session/validate", {
             method: "POST",
             headers: {
                 "Content-Type": "text/plain",
@@ -185,9 +182,11 @@ async function checkUserSessionKey() {
                         type: "init",
                         userId: userId,
                     };
-                    ws.send(JSON.stringify(userIdObject));
-                    updateMainUserData(responseBody.name, responseBody.pfp, responseBody.display_name, responseBody.bio);
-                    getPreviousChats();
+                    ws.onopen = () => {
+                        ws.send(JSON.stringify(userIdObject));
+                        updateMainUserData(responseBody.name, responseBody.pfp, responseBody.display_name, responseBody.bio);
+                        getPreviousChats();
+                    };
                 }
             }
             else {
@@ -281,7 +280,7 @@ async function uploadPfpImage(fileInput) {
             const formData = new FormData();
             formData.append("image", fileInput.files[0]);
             formData.append("id", userId.toString());
-            const response = await fetch("http://localhost:8080/user/newPfp", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/user/newPfp", {
                 method: "POST",
                 body: formData,
             });
@@ -303,7 +302,7 @@ async function uploadPfpImage(fileInput) {
 }
 async function searchUser(query) {
     try {
-        const response = await fetch("http://localhost:8080/user/search", {
+        const response = await fetch("https://restfulapi-chatapp.onrender.com/user/search", {
             method: "POST",
             headers: {
                 "Content-Type": "text/plain",
@@ -457,7 +456,7 @@ function createChat(name, id, pfpUrl, display_name = name) {
             event.preventDefault();
             if (userId > 0 && id > 0 && checkboxBlockUser && checkboxHideChat) {
                 try {
-                    const response = await fetch("http://localhost:8080/user/block", {
+                    const response = await fetch("https://restfulapi-chatapp.onrender.com/user/block", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -522,7 +521,7 @@ function createChat(name, id, pfpUrl, display_name = name) {
         btnConfirm.addEventListener("click", async () => {
             if (userId > 0 && id > 0) {
                 try {
-                    const response = await fetch("http://localhost:8080/chats/delete", {
+                    const response = await fetch("https://restfulapi-chatapp.onrender.com/chats/delete", {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
@@ -618,7 +617,7 @@ function createChat(name, id, pfpUrl, display_name = name) {
         let userDisplayNameRes = "";
         let userBioRes = "";
         try {
-            const response = await fetch("http://localhost:8080/user/profileInfo", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/user/profileInfo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -861,7 +860,7 @@ async function getChat(ownerId, guestId) {
         guestId: guestId,
     };
     try {
-        const response = await fetch("http://localhost:8080/chats/get", {
+        const response = await fetch("https://restfulapi-chatapp.onrender.com/chats/get", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -904,7 +903,7 @@ async function getPreviousChats() {
         divLoader.appendChild(svg1);
         resultsUsersDiv?.appendChild(divLoader);
         try {
-            const response = await fetch("http://localhost:8080/chats/getPrevious", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/chats/getPrevious", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -953,7 +952,7 @@ async function getPreviousChats() {
 async function dynamicFetchMessages(messageDateSent, senderId, guestId) {
     try {
         if (chatId > 0) {
-            const response = await fetch("http://localhost:8080/messages/getNew", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/messages/getNew", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1011,7 +1010,7 @@ async function sendMessage(senderId, chatId, userInput, fileInput, guestId) {
             }
         }
         try {
-            const response = await fetch("http://localhost:8080/message/send", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/message/send", {
                 method: "POST",
                 body: formData,
             });
@@ -1047,7 +1046,7 @@ async function sendMessage(senderId, chatId, userInput, fileInput, guestId) {
 async function deleteMessage(messageId, divContainerMessage, senderId) {
     if (messageId > 0) {
         try {
-            const response = await fetch("http://localhost:8080/message/delete", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/message/delete", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "text/plain",
@@ -1110,7 +1109,7 @@ async function editMessage(messageId, divContainerMessage, senderId) {
                     }
                     else if (editedText.length > 0) {
                         try {
-                            const response = await fetch("http://localhost:8080/message/edit", {
+                            const response = await fetch("https://restfulapi-chatapp.onrender.com/message/edit", {
                                 method: "PATCH",
                                 headers: {
                                     "Content-Type": "application/json",
@@ -1246,7 +1245,7 @@ pfpImage?.addEventListener("click", () => {
                         display_name: userDisplayName?.value ?? "",
                         bio: userBio?.value ?? "",
                     };
-                    const response = await fetch("http://localhost:8080/user/editProfile", {
+                    const response = await fetch("https://restfulapi-chatapp.onrender.com/user/editProfile", {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
@@ -1325,7 +1324,7 @@ deleteAccountBtn?.addEventListener("click", () => {
     btnConfirm.addEventListener("click", async () => {
         if (userId > 0) {
             try {
-                const response = await fetch("http://localhost:8080/user/delete", {
+                const response = await fetch("https://restfulapi-chatapp.onrender.com/user/delete", {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "text/plain",

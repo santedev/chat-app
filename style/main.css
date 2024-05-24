@@ -66,14 +66,14 @@ button {
   max-width: 600px;
   width: fit-content;
 }
-.video {
-  min-width: 300px;
+video {
   width: 60vw;
+  border-radius: clamp(25px, 2vw, 50px);
   max-width: 648px;
+  min-width: 300px;
+  width: 100%;
   height: auto;
   aspect-ratio: 16/9;
-  background: #161a3b;
-  border-radius: clamp(25px, 2vw, 50px);
 }
 .cards-container {
   display: flex;
@@ -172,8 +172,5 @@ button {
 @media (max-width: 576px) {
   .section-video {
     padding: 1.875rem;
-  }
-  .video {
-    width: 100%;
   }
 }

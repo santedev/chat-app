@@ -89,7 +89,7 @@ formSignUp?.addEventListener("submit", async (event) => {
         let loadingContainer = document.querySelector(".loading-container");
         try {
             loadingContainer?.appendChild(svg);
-            const response = await fetch("http://localhost:8080/user/create", {
+            const response = await fetch("https://restfulapi-chatapp.onrender.com/user/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -126,7 +126,7 @@ formSignUp?.addEventListener("submit", async (event) => {
                                     const formData = new FormData();
                                     formData.append("image", fileInput.files[0]);
                                     formData.append("id", userIdRes.toString());
-                                    const response = await fetch("http://localhost:8080/user/newPfp", {
+                                    const response = await fetch("https://restfulapi-chatapp.onrender.com/user/newPfp", {
                                         method: "POST",
                                         body: formData,
                                     });
