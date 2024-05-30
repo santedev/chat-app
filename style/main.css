@@ -67,11 +67,10 @@ button {
   width: fit-content;
 }
 video {
-  width: 60vw;
-  border-radius: clamp(25px, 2vw, 50px);
-  max-width: 648px;
-  min-width: 300px;
-  width: 100%;
+  width: 150vw;
+  border-radius: clamp(5px, 1vw, 10px);
+  max-width: 890px;
+  min-width: 250px;
   height: auto;
   aspect-ratio: 16/9;
 }
@@ -169,6 +168,13 @@ video {
     stroke-dashoffset: 400;
   }
 }
+
+@media (max-width: 769px) {
+  video {
+    width: 100%;
+  }
+}
+
 @media (max-width: 576px) {
   .section-video {
     padding: 1.875rem;
