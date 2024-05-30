@@ -1,6 +1,6 @@
 # chat-app
 
-an chat app that works in real time, made with typescript and c# asp.net core httpListener
+an chat app that works in real time with a websocket, has an api, made with typescript and c# asp.net core, using namespace httpListener
 
 // to start compiling the ts from the folder ts to the folder js
 
