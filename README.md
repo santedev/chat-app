@@ -9,7 +9,7 @@ npm run watch
 
 
 
-// to run the server locally, has hot reload server is made not from the normal asp.net core but uses httpListener workspace
+// to run the server locally, has hot reload and the server asp.net core uses httpListener namespace
 
 
 npm run start 
